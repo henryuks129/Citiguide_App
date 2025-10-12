@@ -2,7 +2,7 @@
 
 > *Explore cities like never before! Your pocket-sized adventure companion.* 🗺️✨
 
----
+[//]: # (---)
 
 [//]: # ()
 [//]: # (## 🎥 Quick Start Video)
@@ -16,18 +16,19 @@
 [//]: # ()
 [//]: # (*Can't watch now? No worries! The guide below has you covered.*)
 
----
+[//]: # ()
+[//]: # (---)
 
 ## 📱 Getting Started in 3 Easy Steps
 
 ### Step 1️⃣: Download & Install
-- Download City Guide from your app store or play-store depending on your device 😉
+- Download City Guide from your app store
 - Open the app and tap **"Get Started"**
 - Takes less than 30 seconds! ⚡
 
 ### Step 2️⃣: Create Your Account
 - Tap **"Sign Up"**
-- Enter your email and create a password or you could sign-in with google
+- Enter your email and create a password
 - Add a profile picture (optional but fun! 📸)
 - You're in!
 
@@ -106,7 +107,6 @@ Tap on any attraction to see:
 
 **Pro Tips:**
 - Swipe through photos 📸
-
 [//]: # (- Tap the map for directions 🗺️)
 - Read reviews before you go 💬
 - Bookmark your favorites! ❤️
@@ -321,6 +321,21 @@ Quick reference for app icons:
 
 ---
 
+[//]: # ()
+[//]: # (## 💬 Need More Help?)
+
+[//]: # ()
+[//]: # (**We're here for you!**)
+
+[//]: # ()
+[//]: # (- 📧 Email: support@cityguide.app)
+
+[//]: # (- 💬 In-app chat: Tap ⚙️ → "Help & Support")
+
+[//]: # (- 🌐 FAQs: www.cityguide.app/help)
+
+[//]: # (- 🎥 Video tutorials: www.cityguide.app/tutorials)
+
 **Found a bug?** 🐛
 Report it through the app and help us improve!
 
@@ -330,7 +345,7 @@ Report it through the app and help us improve!
 
 ```
 ╔══════════════════════════════════╗
-║                                 ║
+║                                  ║
 ║   🌟 Every city has a story.    ║
 ║      Go discover yours! 🗺️      ║
 ║                                  ║
@@ -345,3 +360,4 @@ Report it through the app and help us improve!
 
 ---
 
+**Version:** 1.0.0 | **Last Updated:** October 2025 | **Made with ❤️ for adventurers**
