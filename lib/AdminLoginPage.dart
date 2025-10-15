@@ -1,17 +1,17 @@
-import 'package:citiguide_app/BlankPage.dart';
 import 'package:flutter/material.dart';
 
-import 'ForgotPasswordPage.dart';
-import 'RegisterPage.dart';
+import 'AdminForgotPasswordPage.dart';
+import 'AdminRegisterPage.dart';
+import 'BlankPage.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class AdminLoginPage extends StatefulWidget {
+  const AdminLoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AdminLoginPage> createState() => _AdminLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AdminLoginPageState extends State<AdminLoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Login",
+                    "Admin Login",
                     style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                      labelText: "Email",
+                      labelText: "Admin Email",
                       prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -73,11 +73,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Email cannot be empty";
+                        return "Admin Email cannot be empty";
                       }
                       if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                           .hasMatch(value)) {
-                        return "Enter a valid email";
+                        return "Enter a valid Admin email";
                       }
                       return null;
                     },
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                     controller: _passwordController,
                     obscureText: !_isPasswordVisible,
                     decoration: InputDecoration(
-                      labelText: "Password",
+                      labelText: "Admin Password",
                       prefixIcon: const Icon(Icons.lock_outline),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -109,10 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Password cannot be empty";
+                        return "Admin Password cannot be empty";
                       }
                       if (value.length < 6) {
-                        return "Password must be at least 6 characters";
+                        return "Admin Password must be at least 6 characters";
                       }
                       return null;
                     },
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const ForgotPasswordPage(),
+                            builder: (_) => const AdminForgotPasswordPage(),
                           ),
                         );
                       },
@@ -157,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text("Login successful!"),
+                              content: Text("Admin Login successful!"),
                               behavior: SnackBarBehavior.floating,
                             ),
                           );
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       },
                       child: const Text(
-                        "Login",
+                        "Login as an Admin",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -193,12 +193,12 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const RegisterPage(),
+                              builder: (_) => const AdminRegisterPage(),
                             ),
                           );
                         },
                         child: const Text(
-                          "Register",
+                          "Register as an Admin",
                           style: TextStyle(
                             color: Color(0xFF0177DB),
                             fontWeight: FontWeight.bold,
