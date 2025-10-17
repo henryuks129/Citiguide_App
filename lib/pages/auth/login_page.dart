@@ -38,10 +38,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
       if (user != null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login successful!')),
+          SnackBar(content: Text('Login successful!')),
         );
 
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(Duration(seconds: 1));
 
         if (user.role == 'admin') {
           Navigator.pushReplacementNamed(context, '/adminDashboard');
@@ -90,9 +90,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: Text('Login')),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -100,7 +100,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               children: [
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(labelText: 'Email'),
                   validator: (value) =>
                   value == null || value.isEmpty ? 'Please enter your email' : null,
                 ),
@@ -111,7 +111,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   validator: (value) =>
                   value == null || value.length < 6 ? 'Password too short' : null,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Align(alignment: Alignment.centerRight,
                   child: TextButton(
                       onPressed: () {
@@ -124,7 +124,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : _loginUser,
                     child: _isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                       height: 20,
                       width: 20,
                       child: CircularProgressIndicator(
@@ -132,7 +132,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         strokeWidth: 2,
                       ),
                     )
-                        : const Text('Login'),
+                        : Text('Login'),
                   ),
                 ),
                 SizedBox(height: 16,),

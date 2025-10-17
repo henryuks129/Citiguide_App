@@ -35,8 +35,8 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
       await sendReset(email);
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Password reset email sent successfully!'),
+        SnackBar(
+          content: Text('Password reset email sent successfully! Check your inbox or spam'),
         ),
       );
 

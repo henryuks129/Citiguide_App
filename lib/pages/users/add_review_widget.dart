@@ -69,17 +69,17 @@ class _AddReviewWidgetState extends ConsumerState<AddReviewWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 16),
+      margin: EdgeInsets.symmetric(vertical: 16),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Leave a Review',
+              Text('Leave a Review',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               Row(
                 children: List.generate(5, (index) {
                   final starIndex = index + 1;
@@ -94,7 +94,7 @@ class _AddReviewWidgetState extends ConsumerState<AddReviewWidget> {
               ),
               TextFormField(
                 controller: _commentController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Write your comment',
                   border: OutlineInputBorder(),
                 ),
@@ -102,13 +102,13 @@ class _AddReviewWidgetState extends ConsumerState<AddReviewWidget> {
                 validator: (val) =>
                 val == null || val.isEmpty ? 'Please write something' : null,
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               _isSubmitting
-                  ? const Center(child: CircularProgressIndicator())
+                  ? Center(child: CircularProgressIndicator())
                   : ElevatedButton.icon(
                 onPressed: _submitReview,
-                icon: const Icon(Icons.send),
-                label: const Text('Submit Review'),
+                icon: Icon(Icons.send),
+                label: Text('Submit Review'),
               ),
             ],
           ),

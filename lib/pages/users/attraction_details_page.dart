@@ -67,7 +67,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
       await favRef.delete();
       setState(() => _isFavorite = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Removed from favorites')),
+        SnackBar(content: Text('Removed from favorites')),
       );
     } else {
       await favRef.set({
@@ -105,16 +105,16 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
         .doc(widget.attractionId);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Attraction Details')),
+      appBar: AppBar(title: Text('Attraction Details')),
       body: StreamBuilder<DocumentSnapshot>(
         stream: attractionRef.snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator());
           }
 
           if (!snapshot.hasData || !snapshot.data!.exists) {
-            return const Center(child: Text('Attraction not found.'));
+            return Center(child: Text('Attraction not found.'));
           }
 
           final attraction = snapshot.data!.data() as Map<String, dynamic>;
@@ -127,7 +127,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
           final longitude = (attraction['longitude'] ?? 0).toString();
 
           return SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -146,7 +146,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                             width: double.infinity,
                             height: 220,
                             color: Colors.grey[300],
-                            child: const Icon(Icons.broken_image, size: 80, color: Colors.white70),
+                            child: Icon(Icons.broken_image, size: 80, color: Colors.white70),
                           ),
                         ),
                       ),
@@ -154,7 +154,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                         top: 12,
                         right: 12,
                         child: _loadingFavorite
-                            ? const SizedBox(
+                            ? SizedBox(
                           width: 28,
                           height: 28,
                           child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
@@ -170,26 +170,26 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                       ),
                     ],
                   ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 // Name
-                Text(name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 12),
+                Text(name, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                SizedBox(height: 12),
 
                 // Description
-                Text(description, style: const TextStyle(fontSize: 16, color: Colors.black87)),
-                const SizedBox(height: 20),
+                Text(description, style: TextStyle(fontSize: 16, color: Colors.black87)),
+                SizedBox(height: 20),
 
                 // Address
                 if (address.isNotEmpty)
                   Row(
                     children: [
-                      const Icon(Icons.home_outlined, color: Colors.blue),
-                      const SizedBox(width: 8),
-                      Expanded(child: Text(address, style: const TextStyle(fontSize: 15))),
+                      Icon(Icons.home_outlined, color: Colors.blue),
+                      SizedBox(width: 8),
+                      Expanded(child: Text(address, style: TextStyle(fontSize: 15))),
                     ],
                   ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 // Phone
                 if (phone.isNotEmpty)
@@ -197,27 +197,27 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                     onTap: () => _launchPhone(phone),
                     child: Row(
                       children: [
-                        const Icon(Icons.phone, color: Colors.green),
-                        const SizedBox(width: 8),
+                        Icon(Icons.phone, color: Colors.green),
+                        SizedBox(width: 8),
                         Text(
                           phone,
-                          style: const TextStyle(
+                          style: TextStyle(
                               fontSize: 16, color: Colors.blueAccent, decoration: TextDecoration.underline),
                         ),
                       ],
                     ),
                   ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 // Coordinates
                 Row(
                   children: [
-                    const Icon(Icons.location_on_outlined, color: Colors.red),
-                    const SizedBox(width: 8),
+                    Icon(Icons.location_on_outlined, color: Colors.red),
+                    SizedBox(width: 8),
                     Text('Lat: $latitude, Lng: $longitude'),
                   ],
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 // Open in Google Maps
                 ElevatedButton.icon(
@@ -226,32 +226,32 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                     final lng = double.tryParse(longitude);
                     if (lat != null && lng != null) _openInMap(lat, lng);
                   },
-                  icon: const Icon(Icons.map),
-                  label: const Text('Open in Google Maps'),
+                  icon: Icon(Icons.map),
+                  label: Text('Open in Google Maps'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    padding: EdgeInsets.symmetric(vertical: 14),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
                 // Reviews
                 StreamBuilder<List<ReviewModel>>(
                   stream: ReviewService().getApprovedReviews(widget.cityId, widget.attractionId),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator());
                     }
 
                     if (snapshot.hasError) {
                       return Text(
                         'Error loading reviews: ${snapshot.error}',
-                        style: const TextStyle(color: Colors.red),
+                        style: TextStyle(color: Colors.red),
                       );
                     }
 
                     if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return const Text('No approved reviews yet.');
+                      return  Text('No approved reviews yet.');
                     }
 
                     final reviews = snapshot.data!;
@@ -259,7 +259,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: reviews.map((r) {
                         return Card(
-                          margin: const EdgeInsets.symmetric(vertical: 6),
+                          margin: EdgeInsets.symmetric(vertical: 6),
                           child: ListTile(
                             title: Text(r.userName),
                             subtitle: Text(r.comment),

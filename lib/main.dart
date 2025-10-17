@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:citiguide_app/pages/admin/add_attraction_page.dart';
 import 'package:citiguide_app/pages/admin/add_city_page.dart';
 import 'package:citiguide_app/pages/admin/city_list_page.dart';
@@ -21,19 +20,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const ProviderScope(child: MyApp()));
-=======
-import 'package:citiguide_app/BlankPage.dart';
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
->>>>>>> e46c2c8e915aa3ee1bd1a4dd908420d437ab7e4a
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-<<<<<<< HEAD
   Future<Widget> _getInitialPage() async {
     final user = FirebaseAuth.instance.currentUser;
 
@@ -87,14 +78,6 @@ class MyApp extends StatelessWidget {
         '/manageReviews': (context) => const ManageReviewsPage(),
 
       },
-=======
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'CitiGuide',
-      home: BlankPage(),
->>>>>>> e46c2c8e915aa3ee1bd1a4dd908420d437ab7e4a
     );
   }
 }

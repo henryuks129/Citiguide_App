@@ -15,38 +15,38 @@ class AdminDashboard extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Dashboard'),
+        title: Text('Admin Dashboard'),
         actions: [
           IconButton(
             onPressed: signOut,
-            icon: const Icon(Icons.logout),
+            icon: Icon(Icons.logout),
             tooltip: 'Sign Out',
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         child: ListView(
           children: [
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
-            // 👋 Welcome Message
+            //  Welcome Message
             Text(
               'Welcome, ${user?.email ?? 'Admin'}',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
             ),
 
-            const SizedBox(height: 25),
+            SizedBox(height: 25),
 
-            // 🏙 City Management Section
-            const Text(
+            //  City Management Section
+            Text(
               'City Management',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
             _DashboardTile(
               icon: Icons.add_location_alt_outlined,
@@ -61,14 +61,14 @@ class AdminDashboard extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, '/cityList'),
             ),
 
-            const SizedBox(height: 40),
+            SizedBox(height: 40),
 
-            // 🎢 Attraction Management Section
-            const Text(
+            //  Attraction Management Section
+            Text(
               'Attraction Management',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
             _DashboardTile(
               icon: Icons.add_business_rounded,
@@ -83,14 +83,14 @@ class AdminDashboard extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, '/manageAttractions'),
             ),
 
-            const SizedBox(height: 40),
+            SizedBox(height: 40),
 
-            // 💬 Review Management Section
-            const Text(
+            //  Review Management Section
+            Text(
               'Review Management',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
             _DashboardTile(
               icon: Icons.reviews_outlined,
@@ -99,14 +99,14 @@ class AdminDashboard extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, '/manageReviews'),
             ),
 
-            const SizedBox(height: 40),
+            SizedBox(height: 40),
 
-            // ⚙️ Account Settings Section
-            const Text(
+            //Account Settings Section
+            Text(
               'Account Settings',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
             _DashboardTile(
               icon: Icons.logout,
@@ -140,7 +140,7 @@ class _DashboardTile extends StatelessWidget {
       color: color.withOpacity(0.1),
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      margin: EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: color,
@@ -148,9 +148,9 @@ class _DashboardTile extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
         ),
-        trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 18),
+        trailing: Icon(Icons.arrow_forward_ios_rounded, size: 18),
         onTap: onTap,
       ),
     );

@@ -71,11 +71,11 @@ class _UserProfilePageState extends State<UserProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      appBar: AppBar(title: Text('Profile')),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             // Profile Image
@@ -87,59 +87,59 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   ? NetworkImage(_profileImageUrl!)
                   : null,
               child: (_profileImageUrl == null || _profileImageUrl!.isEmpty)
-                  ? const Icon(Icons.person, size: 60)
+                  ? Icon(Icons.person, size: 60)
                   : null,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // Name
             Text(
               _name ?? 'Unknown User',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
 
             // Email
             Text(
               _email ?? '',
               style: TextStyle(color: Colors.grey[600], fontSize: 16),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
 
             // Edit Profile
             ListTile(
-              leading: const Icon(Icons.edit, color: Colors.blue),
-              title: const Text('Edit Profile'),
-              trailing: const Icon(Icons.arrow_forward_ios),
+              leading: Icon(Icons.edit, color: Colors.blue),
+              title: Text('Edit Profile'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => const EditProfilePage()),
+                  MaterialPageRoute(builder: (_) => EditProfilePage()),
                 ).then((_) => _loadUserData()); // Refresh after editing
               },
             ),
-            const Divider(),
+            Divider(),
 
             // Preferences & Favorites
             ListTile(
-              leading: const Icon(Icons.favorite, color: Colors.pink),
-              title: const Text('Preferences & Favorites'),
-              trailing: const Icon(Icons.arrow_forward_ios),
+              leading: Icon(Icons.favorite, color: Colors.pink),
+              title: Text('Preferences & Favorites'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (_) => const UserPreferencesPage()),
+                      builder: (_) => UserPreferencesPage()),
                 );
               },
             ),
-            const Divider(),
+            Divider(),
 
             // Logout
             ListTile(
-              leading: const Icon(Icons.logout, color: Colors.red),
-              title: const Text('Logout'),
+              leading: Icon(Icons.logout, color: Colors.red),
+              title: Text('Logout'),
               onTap: _signOut,
             ),
           ],

@@ -57,7 +57,7 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
       );
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Attraction added successfully!')),
+        SnackBar(content: Text('Attraction added successfully!')),
       );
 
       _nameController.clear();
@@ -87,9 +87,9 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
         final cities = snapshot.data ?? [];
 
         return Scaffold(
-          appBar: AppBar(title: const Text('Add Attraction')),
+          appBar: AppBar(title: Text('Add Attraction')),
           body: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  EdgeInsets.all(16.0),
             child: Form(
               key: _formKey,
               child: SingleChildScrollView(
@@ -97,10 +97,10 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     snapshot.connectionState == ConnectionState.waiting
-                        ? const Center(child: CircularProgressIndicator())
+                        ? Center(child: CircularProgressIndicator())
                         : DropdownButtonFormField<String>(
                       value: _selectedCityId,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Select City',
                         border: OutlineInputBorder(),
                       ),
@@ -116,24 +116,24 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (value) =>
                       value == null ? 'Select a city' : null,
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
 
                     /// Name
                     TextFormField(
                       controller: _nameController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Attraction Name',
                         border: OutlineInputBorder(),
                       ),
                       validator: (val) =>
                       val!.isEmpty ? 'Enter attraction name' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Description
                     TextFormField(
                       controller: _descController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Description',
                         border: OutlineInputBorder(),
                       ),
@@ -141,12 +141,12 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (val) =>
                       val!.isEmpty ? 'Enter description' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Phone
                     TextFormField(
                       controller: _phoneController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Phone Number',
                         border: OutlineInputBorder(),
                       ),
@@ -154,12 +154,12 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (val) =>
                       val!.isEmpty ? 'Enter phone number' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Image URL
                     TextFormField(
                       controller: _imageController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Image URL',
                         border: OutlineInputBorder(),
                       ),
@@ -167,24 +167,24 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (val) =>
                       val!.isEmpty ? 'Enter image URL' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Address
                     TextFormField(
                       controller: _addressController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Address',
                         border: OutlineInputBorder(),
                       ),
                       validator: (val) =>
                       val!.isEmpty ? 'Enter address' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Latitude
                     TextFormField(
                       controller: _latController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Latitude',
                         border: OutlineInputBorder(),
                       ),
@@ -192,12 +192,12 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (val) =>
                       val!.isEmpty ? 'Enter latitude' : null,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
 
                     /// Longitude
                     TextFormField(
                       controller: _lngController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Longitude',
                         border: OutlineInputBorder(),
                       ),
@@ -205,16 +205,16 @@ class _AddAttractionPageState extends ConsumerState<AddAttractionPage> {
                       validator: (val) =>
                       val!.isEmpty ? 'Enter longitude' : null,
                     ),
-                    const SizedBox(height: 25),
+                    SizedBox(height: 25),
 
                     _isLoading
-                        ? const Center(child: CircularProgressIndicator())
+                        ? Center(child: CircularProgressIndicator())
                         : ElevatedButton.icon(
-                      icon: const Icon(Icons.add_location_alt),
-                      label: const Text('Add Attraction'),
+                      icon: Icon(Icons.add_location_alt),
+                      label: Text('Add Attraction'),
                       style: ElevatedButton.styleFrom(
                         padding:
-                        const EdgeInsets.symmetric(vertical: 14),
+                        EdgeInsets.symmetric(vertical: 14),
                       ),
                       onPressed: _submitAttraction,
                     ),

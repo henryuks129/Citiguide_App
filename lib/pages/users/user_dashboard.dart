@@ -23,7 +23,7 @@ class _UserDashboardState extends State<UserDashboard> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const LoginPage()),
+        MaterialPageRoute(builder: (_) => LoginPage()),
       );
     } catch (e) {
       if (context.mounted) {
@@ -38,15 +38,15 @@ class _UserDashboardState extends State<UserDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('User Dashboard'),
+        title: Text('User Dashboard'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.person),
+            icon: Icon(Icons.person),
             tooltip: 'Profile',
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => const UserProfilePage()),
+                MaterialPageRoute(builder: (_) => UserProfilePage()),
               );
             },
           ),
@@ -56,11 +56,11 @@ class _UserDashboardState extends State<UserDashboard> {
         children: [
           // 🔍 Search Bar
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Search city...',
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -84,7 +84,7 @@ class _UserDashboardState extends State<UserDashboard> {
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
+                  return Center(child: CircularProgressIndicator());
                 }
 
                 if (snapshot.hasError) {
@@ -92,7 +92,7 @@ class _UserDashboardState extends State<UserDashboard> {
                 }
 
                 if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                  return const Center(child: Text('No cities available yet.'));
+                  return  Center(child: Text('No cities available yet.'));
                 }
 
                 final allCities = snapshot.data!.docs;
@@ -103,7 +103,7 @@ class _UserDashboardState extends State<UserDashboard> {
                 }).toList();
 
                 if (filteredCities.isEmpty) {
-                  return const Center(child: Text('No cities match your search.'));
+                  return Center(child: Text('No cities match your search.'));
                 }
 
                 return LayoutBuilder(
@@ -118,7 +118,7 @@ class _UserDashboardState extends State<UserDashboard> {
                     }
 
                     return GridView.builder(
-                      padding: const EdgeInsets.all(12),
+                      padding: EdgeInsets.all(12),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: crossAxisCount,
                         crossAxisSpacing: 12,
@@ -162,22 +162,22 @@ class _UserDashboardState extends State<UserDashboard> {
                                     fit: BoxFit.cover,
                                     errorBuilder:
                                         (context, error, stackTrace) =>
-                                    const Icon(Icons.broken_image,
+                                     Icon(Icons.broken_image,
                                         size: 60),
                                   )
                                       : Container(
                                     color: Colors.grey[300],
-                                    child: const Icon(Icons.location_city,
+                                    child: Icon(Icons.location_city,
                                         size: 60),
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: EdgeInsets.all(8),
                                   color: Colors.grey[100],
                                   child: Text(
                                     cityName,
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),

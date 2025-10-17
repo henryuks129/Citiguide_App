@@ -20,7 +20,7 @@ class _ManageAttractionsPageState extends ConsumerState<ManageAttractionsPage> {
       stream: cityService.getCitiesStream(),
       builder: (context, citySnapshot) {
         if (citySnapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
+          return Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
@@ -28,23 +28,23 @@ class _ManageAttractionsPageState extends ConsumerState<ManageAttractionsPage> {
         final cities = citySnapshot.data ?? [];
 
         if (cities.isEmpty) {
-          return const Scaffold(
+          return Scaffold(
             body: Center(child: Text('No cities found.')),
           );
         }
 
         return Scaffold(
-          appBar: AppBar(title: const Text('Manage Attractions')),
+          appBar: AppBar(title: Text('Manage Attractions')),
           body: ListView.builder(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12),
             itemCount: cities.length,
             itemBuilder: (context, index) {
               final city = cities[index];
               return Card(
                 child: ListTile(
-                  title: Text(city.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  title: Text(city.name, style: TextStyle(fontWeight: FontWeight.bold)),
                   subtitle: Text(city.description),
-                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 18),
                   onTap: () {
                     Navigator.push(
                       context,

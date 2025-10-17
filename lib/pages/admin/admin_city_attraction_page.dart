@@ -18,12 +18,12 @@ class CityAttractionsPage extends StatefulWidget {
 class _CityAttractionsPageState extends State<CityAttractionsPage> {
   final attractionService = AttractionService();
 
-  /// ✅ Delete attraction
+  //Delete attraction
   Future<void> _deleteAttraction(String attractionId) async {
     try {
       await attractionService.deleteAttraction(widget.cityId, attractionId);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Attraction deleted successfully!')),
+        SnackBar(content: Text('Attraction deleted successfully!')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -32,7 +32,7 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
     }
   }
 
-  /// ✅ Edit attraction dialog
+  // Edit attraction dialog
   Future<void> _editAttraction(Map<String, dynamic> attraction) async {
     final nameController = TextEditingController(text: attraction['name']);
     final descController =
@@ -48,39 +48,39 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Edit Attraction'),
+        title: Text('Edit Attraction'),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: nameController,
-                decoration: const InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: 'Name'),
               ),
               TextField(
                 controller: descController,
-                decoration: const InputDecoration(labelText: 'Description'),
+                decoration: InputDecoration(labelText: 'Description'),
               ),
               TextField(
                 controller: phoneController,
-                decoration: const InputDecoration(labelText: 'Phone'),
+                decoration: InputDecoration(labelText: 'Phone'),
               ),
               TextField(
                 controller: imageController,
-                decoration: const InputDecoration(labelText: 'Image URL'),
+                decoration: InputDecoration(labelText: 'Image URL'),
               ),
               TextField(
                 controller: addressController,
-                decoration: const InputDecoration(labelText: 'Address'),
+                decoration: InputDecoration(labelText: 'Address'),
               ),
               TextField(
                 controller: latController,
-                decoration: const InputDecoration(labelText: 'Latitude'),
+                decoration: InputDecoration(labelText: 'Latitude'),
                 keyboardType: TextInputType.number,
               ),
               TextField(
                 controller: lngController,
-                decoration: const InputDecoration(labelText: 'Longitude'),
+                decoration: InputDecoration(labelText: 'Longitude'),
                 keyboardType: TextInputType.number,
               ),
             ],
@@ -89,7 +89,7 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: Text('Cancel'),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -118,7 +118,7 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
 
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Attraction updated successfully!')),
+                  SnackBar(content: Text('Attraction updated successfully!')),
                 );
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -126,7 +126,7 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
                 );
               }
             },
-            child: const Text('Save'),
+            child: Text('Save'),
           ),
         ],
       ),
@@ -141,24 +141,24 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
         stream: attractionService.getAllAttractions(widget.cityId),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return  Center(child: CircularProgressIndicator());
           }
 
           final attractions = snapshot.data ?? [];
 
           if (attractions.isEmpty) {
-            return const Center(child: Text('No attractions yet.'));
+            return Center(child: Text('No attractions yet.'));
           }
 
           return ListView.builder(
             itemCount: attractions.length,
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12),
             itemBuilder: (context, index) {
               final attr = attractions[index];
 
               return Card(
                 elevation: 2,
-                margin: const EdgeInsets.symmetric(vertical: 8),
+                margin: EdgeInsets.symmetric(vertical: 8),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -171,10 +171,10 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
                       width: 60,
                       height: 60,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => const Icon(Icons.image_not_supported),
+                      errorBuilder: (_, __, ___) => Icon(Icons.image_not_supported),
                     ),
                   )
-                      : const Icon(Icons.location_city, size: 40, color: Colors.teal),
+                      : Icon(Icons.location_city, size: 40, color: Colors.teal),
                   title: Text(attr['name'] ?? ''),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,21 +183,21 @@ class _CityAttractionsPageState extends State<CityAttractionsPage> {
                         Text(attr['description'], maxLines: 2, overflow: TextOverflow.ellipsis),
                       if (attr['address'] != null)
                         Text('📍 ${attr['address']}',
-                            style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                            style: TextStyle(fontSize: 12, color: Colors.grey)),
                       if (attr['phone'] != null)
                         Text('📞 ${attr['phone']}',
-                            style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                            style: TextStyle(fontSize: 12, color: Colors.grey)),
                     ],
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.edit, color: Colors.teal),
+                        icon:  Icon(Icons.edit, color: Colors.teal),
                         onPressed: () => _editAttraction(attr),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red),
+                        icon: Icon(Icons.delete, color: Colors.red),
                         onPressed: () => _deleteAttraction(attr['id']),
                       ),
                     ],

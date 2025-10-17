@@ -19,25 +19,25 @@ class ManageReviewsPage extends ConsumerWidget {
     } catch (e) {
       // Firestore throws if the index doesn't exist
       return Scaffold(
-        appBar: AppBar(title: const Text('Manage Reviews')),
+        appBar: AppBar(title: Text('Manage Reviews')),
         body: Center(
           child: Text(
             'Unable to load reviews. Please create the required Firestore index.\n\nError: $e',
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.red),
+            style: TextStyle(color: Colors.red),
           ),
         ),
       );
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Manage Reviews')),
+      appBar: AppBar(title: Text('Manage Reviews')),
       body: StreamBuilder<QuerySnapshot>(
         stream: reviewStream,
         builder: (context, snapshot) {
-          // 🌀 Loading State
+          // Loading State
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator());
           }
 
           //Error State
@@ -45,17 +45,17 @@ class ManageReviewsPage extends ConsumerWidget {
             return Center(
               child: Text(
                 'Error: ${snapshot.error}',
-                style: const TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.red),
               ),
             );
           }
 
-          // 📭 No Reviews
+          //  No Reviews
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
             return const Center(child: Text('No reviews found.'));
           }
 
-          // ✅ Map reviews safely
+          // Map reviews safely
           final reviews = snapshot.data!.docs.map((doc) {
             final data = doc.data() as Map<String, dynamic>? ?? {};
             final createdAt = data['createdAt'];
@@ -74,9 +74,9 @@ class ManageReviewsPage extends ConsumerWidget {
             };
           }).toList();
 
-          // 🧾 Review List
+          //  Review List
           return ListView.builder(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             itemCount: reviews.length,
             itemBuilder: (context, index) {
               final review = reviews[index];
@@ -86,14 +86,14 @@ class ManageReviewsPage extends ConsumerWidget {
               final reviewId = pathParts.length > 5 ? pathParts[5] : '';
 
               return Card(
-                margin: const EdgeInsets.only(bottom: 12),
+                margin: EdgeInsets.only(bottom: 12),
                 child: ListTile(
                   title: Text(review['userName']),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(review['comment']),
-                      const SizedBox(height: 5),
+                      SizedBox(height: 5),
                       Row(
                         children: List.generate(
                           5,
@@ -106,7 +106,7 @@ class ManageReviewsPage extends ConsumerWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
+                      SizedBox(height: 5),
                       Text(
                         review['approved']
                             ? '✅ Approved'
@@ -127,13 +127,13 @@ class ManageReviewsPage extends ConsumerWidget {
                           await reviewService.approveReview(
                               cityId, attractionId, reviewId);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Review approved!')),
+                            SnackBar(content: Text('Review approved!')),
                           );
                         } else if (value == 'delete') {
                           await reviewService.deleteReview(
                               cityId, attractionId, reviewId);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Review deleted!')),
+                            SnackBar(content: Text('Review deleted!')),
                           );
                         }
                       } catch (e) {
@@ -144,11 +144,11 @@ class ManageReviewsPage extends ConsumerWidget {
                     },
                     itemBuilder: (context) => [
                       if (!review['approved'])
-                        const PopupMenuItem(
+                        PopupMenuItem(
                           value: 'approve',
                           child: Text('Approve Review'),
                         ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'delete',
                         child: Text('Delete Review'),
                       ),

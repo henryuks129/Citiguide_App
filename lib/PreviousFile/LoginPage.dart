@@ -1,4 +1,4 @@
-import 'package:citiguide_app/BlankPage.dart';
+import 'package:citiguide_app/PreviousFile/BlankPage.dart';
 import 'package:flutter/material.dart';
 
 import 'ForgotPasswordPage.dart';

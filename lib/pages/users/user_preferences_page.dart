@@ -37,7 +37,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         'createdAt': FieldValue.serverTimestamp(),
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Added to favorites')),
+        SnackBar(content: Text('Added to favorites')),
       );
     }
 
@@ -47,7 +47,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
   @override
   Widget build(BuildContext context) {
     if (user == null) {
-      return const Scaffold(
+      return Scaffold(
         body: Center(child: Text('Please log in to view favorites')),
       );
     }
@@ -60,23 +60,23 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         .snapshots();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My Favorites')),
+      appBar: AppBar(title: Text('My Favorites')),
       body: StreamBuilder<QuerySnapshot>(
         stream: favoritesStream,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator());
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Center(child: Text('No favorites yet.'));
+            return Center(child: Text('No favorites yet.'));
           }
 
           final favorites = snapshot.data!.docs;
 
           return GridView.builder(
-            padding: const EdgeInsets.all(12),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            padding: EdgeInsets.all(12),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
@@ -111,17 +111,17 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
                             errorBuilder: (context, error, stackTrace) {
                               return Container(
                                 color: Colors.grey[300],
-                                child: const Icon(Icons.broken_image, size: 60),
+                                child: Icon(Icons.broken_image, size: 60),
                               );
                             },
                           )
                               : Container(
                             color: Colors.grey[300],
-                            child: const Icon(Icons.place_outlined, size: 60),
+                            child: Icon(Icons.place_outlined, size: 60),
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(8),
+                          padding: EdgeInsets.all(8),
                           color: Colors.grey[100],
                           child: Column(
                             children: [

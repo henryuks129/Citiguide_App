@@ -42,7 +42,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
       if (user != null && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Registration successful!')),
+          SnackBar(content: Text('Registration successful!')),
         );
         await Future.delayed(Duration(milliseconds: 300));
 
@@ -71,9 +71,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Register')),
+      appBar: AppBar(title: Text('Register')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -82,40 +82,40 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               children: [
                 TextFormField(
                   controller: _nameController,
-                  decoration: const InputDecoration(labelText: 'Full Name'),
+                  decoration: InputDecoration(labelText: 'Full Name'),
                   validator: (value) =>
                   value == null || value.isEmpty ? 'Please enter your name' : null,
                 ),
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(labelText: 'Email'),
                   validator: (value) =>
                   value == null || value.isEmpty ? 'Please enter your email' : null,
                 ),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: InputDecoration(labelText: 'Password'),
                   validator: (value) =>
                   value == null || value.length < 6 ? 'Password must be at least 6 characters' : null,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 DropdownButtonFormField<String>(
                   initialValue: _role,
-                  items: const [
+                  items:  [
                     DropdownMenuItem(value: 'user', child: Text('User')),
                     DropdownMenuItem(value: 'admin', child: Text('Admin')),
                   ],
                   onChanged: (value) => setState(() => _role = value!),
-                  decoration: const InputDecoration(labelText: 'Role'),
+                  decoration: InputDecoration(labelText: 'Role'),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : _registerUser,
                     child: _isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                       height: 20,
                       width: 20,
                       child: CircularProgressIndicator(
@@ -123,7 +123,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                         strokeWidth: 2,
                       ),
                     )
-                        : const Text('Register'),
+                        : Text('Register'),
                   ),
                 ),
                 Center(child: Text('Or', style: TextStyle(fontWeight: FontWeight.bold),)),

@@ -87,7 +87,7 @@ class CityAttractionsPage extends StatelessWidget {
                           return Container(
                             height: 220,
                             color: Colors.grey[300],
-                            child: const Icon(Icons.location_city, size: 80, color: Colors.white70),
+                            child: Icon(Icons.location_city, size: 80, color: Colors.white70),
                           );
                         },
                       ),
@@ -156,7 +156,7 @@ class CityAttractionsPage extends StatelessWidget {
                                   width: 60,
                                   height: 60,
                                   color: Colors.grey[300],
-                                  child: const Icon(Icons.place_outlined, size: 30),
+                                  child: Icon(Icons.place_outlined, size: 30),
                                 );
                               },
                             ),

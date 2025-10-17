@@ -17,7 +17,7 @@ class _CityListPageState extends State<CityListPage> {
     try {
       await _cityService.deleteCity(cityId);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('City deleted successfully')),
+        SnackBar(content: Text('City deleted successfully')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -30,16 +30,16 @@ class _CityListPageState extends State<CityListPage> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Confirm Delete'),
-        content: const Text('Are you sure you want to delete this city?'),
+        title: Text('Confirm Delete'),
+        content: Text('Are you sure you want to delete this city?'),
         actions: [
           TextButton(
-            child: const Text('Cancel'),
+            child:  Text('Cancel'),
             onPressed: () => Navigator.pop(context),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text('Delete'),
             onPressed: () {
               Navigator.pop(context);
               _deleteCity(cityId);
@@ -54,13 +54,13 @@ class _CityListPageState extends State<CityListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Manage Cities'),
+        title: Text('Manage Cities'),
       ),
       body: StreamBuilder<List<CityModel>>(
         stream: _cityService.getCitiesStream(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
@@ -70,18 +70,18 @@ class _CityListPageState extends State<CityListPage> {
           final cities = snapshot.data ?? [];
 
           if (cities.isEmpty) {
-            return const Center(
+            return Center(
               child: Text('No cities added yet'),
             );
           }
 
           return ListView.builder(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             itemCount: cities.length,
             itemBuilder: (context, index) {
               final city = cities[index];
               return Card(
-                margin: const EdgeInsets.symmetric(vertical: 8),
+                margin: EdgeInsets.symmetric(vertical: 8),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -96,11 +96,11 @@ class _CityListPageState extends State<CityListPage> {
                       fit: BoxFit.cover,
                     ),
                   )
-                      : const Icon(Icons.location_city, size: 40),
+                      : Icon(Icons.location_city, size: 40),
 
                   title: Text(
                     city.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
@@ -124,7 +124,7 @@ class _CityListPageState extends State<CityListPage> {
                       }
                     },
                     itemBuilder: (_) => [
-                      const PopupMenuItem(
+                       PopupMenuItem(
                         value: 'edit',
                         child: Row(
                           children: [
@@ -134,7 +134,7 @@ class _CityListPageState extends State<CityListPage> {
                           ],
                         ),
                       ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'delete',
                         child: Row(
                           children: [
