@@ -1,347 +1,202 @@
-# 🎉 City Guide App - User Guide
+<<<<<<< HEAD
+# citiguide_app
 
-> *Explore cities like never before! Your pocket-sized adventure companion.* 🗺️✨
+A new Flutter project.
 
----
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+=======
+# 🏙️ City Guide Mobile App
+
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
+
+> Your ultimate companion for exploring cities like a local! 🗺️✨
+
+## 📖 Overview
+
+The City Guide mobile app is a comprehensive digital platform designed to help residents and tourists discover, explore, and enjoy cities. Whether you're looking for trending attractions, authentic local restaurants, upcoming events, or comfortable accommodations, City Guide has you covered.
+
+## ✨ Key Features
+
+### 🔐 User Management
+- Secure user registration and authentication
+- Personalized user profiles
+- Password recovery functionality
+- Customizable preferences and favorites
+
+### 🌆 City Exploration
+- Browse multiple cities with rich descriptions and imagery
+- Discover popular attractions, restaurants, hotels, and events
+- Filter and sort by categories, ratings, and preferences
+- Detailed information with images, reviews, and contact details
+
+### 🗺️ Navigation & Maps
+- Integrated interactive maps with attraction markers
+- Real-time directions from your current location
+- Location-based recommendations
+
+### ⭐ Community Features
+- Read and write reviews for attractions
+- Rate experiences with star ratings
+- Like helpful reviews from other users
+- Share recommendations with the community
+
+### 🔍 Smart Search
+- Quick search by name or keywords
+- Advanced filtering options
+- Category-based discovery
+
+### 👨‍💼 Admin Dashboard
+- Manage attraction listings and content
+- Moderate user reviews
+- Add, edit, or remove events and attractions
+- Send notifications to users
+
+## 🛠️ Tech Stack
+
+- **Framework:** Flutter
+- **Language:** Dart
+- **Platform:** Android (iOS support can be added)
+- 
+[//]: # (- **Database:** SQL)
+- **Development Environment:** Android Studio
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Flutter SDK (latest stable version)
+- Dart SDK (comes with Flutter)
+- Android Studio or VS Code with Flutter extensions
+- Android SDK (API level 21 or higher)
+- Git for version control
+- A physical device or emulator for testing
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Philip-Gbesan/Citiguide_App.git
+
+# Navigate to project directory
+cd cityguide_app
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+[//]: # (## 📱 System Requirements)
 
 [//]: # ()
-[//]: # (## 🎥 Quick Start Video)
+[//]: # (### Minimum Requirements)
+
+[//]: # (- **Processor:** Pentium 166 or better)
+
+[//]: # (- **RAM:** 128 MB or higher)
+
+[//]: # (- **OS:** Windows 2000 Server or later)
+
+[//]: # (- **Storage:** 500 MB free space)
 
 [//]: # ()
-[//]: # (**Watch this 2-minute tutorial to get started!**)
+[//]: # (### Recommended Requirements)
+
+[//]: # (- **Processor:** Intel Core i3 or better)
+
+[//]: # (- **RAM:** 4 GB or higher)
+
+[//]: # (- **OS:** Windows 10/11, macOS, or Linux)
+
+[//]: # (- **Storage:** 2 GB free space)
+
+## 📂 Project Structure
+
+```
+citiguide_app/
+├── lib/
+│   ├── models/          # Data models
+│   ├── screens/         # UI screens
+│   ├── widgets/         # Reusable widgets
+│   ├── services/        # API and database services
+│   ├── utils/           # Helper functions
+│   └── main.dart        # App entry point
+├── assets/              # Images, fonts, etc.
+├── test/                # Unit and widget tests
+├── android/             # Android-specific code
+├── ios/                 # iOS-specific code
+└── pubspec.yaml         # Dependencies
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) for detailed instructions on how to contribute to this project.
+
+Quick steps:
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
+
+## 📚 Documentation
+
+- **[Developer Guide](DEVELOPER_GUIDE.md)** - Complete guide for contributors
+- **[User Guide](USER_GUIDE.md)** - How to use the app
+
+[//]: # (- **[API Documentation]&#40;docs/API.md&#41;** - API endpoints and usage)
+
+[//]: # (## 🎯 Non-Functional Requirements)
 
 [//]: # ()
-[//]: # ([![City Guide Tutorial]&#40;https://img.youtube.com/vi/YOUTUBE_ID/maxresdefault.jpg&#41;]&#40;https://youtu.be/YOUR_VIDEO_LINK&#41;)
+[//]: # (- **Performance:** Response time under 1-2 seconds)
 
-[//]: # ()
-[//]: # (*Can't watch now? No worries! The guide below has you covered.*)
+[//]: # (- **UI/UX:** Intuitive, mobile-first design)
 
----
+[//]: # (- **Accessibility:** Clear fonts and navigation)
 
-## 📱 Getting Started in 3 Easy Steps
+[//]: # (- **Security:** Authentication and data protection)
 
-### Step 1️⃣: Download & Install
-- Download City Guide from your app store or play-store depending on your device 😉
-- Open the app and tap **"Get Started"**
-- Takes less than 30 seconds! ⚡
+[//]: # (- **Scalability:** Designed for growth)
 
-### Step 2️⃣: Create Your Account
-- Tap **"Sign Up"**
-- Enter your email and create a password or you could sign-in with google
-- Add a profile picture (optional but fun! 📸)
-- You're in!
+[//]: # (- **Error Handling:** Graceful error management)
 
-### Step 3️⃣: Start Exploring
-- Choose your city
-- Start discovering amazing places! 🎊
+## 🐛 Bug Reports & Feature Requests
 
----
+Found a bug or have a feature idea? Please create an issue on GitHub with:
+- Clear description
+- Steps to reproduce (for bugs)
+- Expected vs actual behavior
+- Screenshots if applicable
 
-## 🌟 Core Features
+## 📄 License
 
-### 🏙️ Explore Cities
+This project is part of an Aptech eProject learning initiative.
 
-```
-┌─────────────────────────────┐
-│   🌆 Select Your City       │
-│                             │
-│  📍 Lagos                   │
-│  📍 Abuja                   │
-│  📍 Port Harcourt           │
-│  + More cities...           │
-└─────────────────────────────┘
-```
+## 👥 Team
 
-**How it works:**
-1. Tap the **city selector** at the top
-2. Browse beautiful city images and descriptions
-3. Select your destination
-4. Watch the magic happen! ✨
+Developed as part of the Aptech eProject program - a hands-on learning environment for implementing real-world applications.
+
+## 📧 Contact
+
+For questions or support, reach out to the eProjects Team.
 
 ---
 
-### 🎯 Discover Attractions
+**Made with ❤️ using Flutter**
 
-```
-┌──────────────────────────────────┐
-│  🔍 [Search...]                  │
-├──────────────────────────────────┤
-│                                  │
-│  🏛️  National Museum    ⭐ 4.8  │
-│      History & Culture           │
-│                                  │
-│  🍽️  Jollof Kitchen     ⭐ 4.5  │
-│      Nigerian Cuisine            │
-│                                  │
-│  🏨  Luxury Hotel       ⭐ 4.9  │
-│      5-Star Experience           │
-└──────────────────────────────────┘
-```
-
-**What you can do:**
-- **Search** by name or keyword 🔎
-- **Filter** by category (restaurants, hotels, museums, etc.)
-- **Sort** by rating or distance
-- Tap any attraction for juicy details! 🎉
-
----
-
-### 📖 Get the Full Story
-
-Tap on any attraction to see:
-
-```
-╔════════════════════════════════╗
-║   🏛️ National Museum           ║
-║   ────────────────────────     ║
-║   [Beautiful Image Gallery]    ║
-║                                ║
-║   📍 Location on Map           ║
-║   🕐 Opening Hours             ║
-║   ☎️  Contact Info             ║
-║   🌐 Website                   ║
-║   ⭐ User Reviews              ║
-╚════════════════════════════════╝
-```
-
-**Pro Tips:**
-- Swipe through photos 📸
-
-[//]: # (- Tap the map for directions 🗺️)
-- Read reviews before you go 💬
-- Bookmark your favorites! ❤️
-
----
-
-### 🗺️ Navigate Like a Pro
-
-```
-     You are here! 📍
-          ↓
-     [Your Location]
-          |
-          |  → Get Directions
-          ↓
-     [Destination] 🎯
-```
-
-**How to use:**
-1. Open an attraction
-2. Tap **"Get Directions"**
-3. Follow the route on the map
-4. Arrive like a local! 😎
-
----
-
-### ⭐ Share Your Experience
-
-Love a place? Tell others!
-
-```
-┌─────────────────────────────┐
-│  Rate Your Visit ⭐⭐⭐⭐⭐     │
-│                             │
-│  💭 Write a Review          │
-│  "Amazing experience! The   │
-│   food was incredible..."   │
-│                             │
-│  [📸 Add Photos] [Submit]   │
-└─────────────────────────────┘
-```
-
-**Your review helps:**
-- Other travelers find great spots
-- Local businesses improve
-- You build your travel profile! 🏆
-
----
-
-### 👤 Your Profile
-
-```
-┌────────────────────────────────┐
-│  😊 Your Name                  │
-│  📧 email@example.com          │
-├────────────────────────────────┤
-│  ⭐ Reviews: 12                │
-│  ❤️  Favorites: 8              │
-│  📍 Cities Visited: 3          │
-├────────────────────────────────┤
-│  ⚙️  Settings                  │
-│  🔔  Notifications             │
-│  🚪  Logout                    │
-└────────────────────────────────┘
-```
-
-**Customize your experience:**
-- Edit your info anytime
-- Manage favorites & saved places
-- Control notifications
-- Track your adventures! 🎒
-
----
-
-## 💡 Pro Tips & Tricks
-
-### 🎯 Power User Moves
-
-**1. Save Favorites Offline**
-- Bookmark places before you go
-- Access them even without internet!
-
-**2. Smart Search**
-- Try: "Nigerian food near me" 🍲
-- Or: "5-star hotels" 🏨
-- Or: "museums open now" 🏛️
-
-**3. Plan Your Day**
-- Star multiple attractions
-- Check distances between them
-- Create your perfect route!
-
-**4. Discover Hidden Gems**
-- Sort by "Highest Rated"
-- Check the "Less Crowded" filter
-- Read detailed reviews 🔍
-
-**5. Stay Updated**
-- Enable notifications for events
-- Get alerts for new attractions
-- Never miss out! 🎊
-
----
-
-## 🆘 Quick Help
-
-### Common Questions
-
-**Q: How do I reset my password?**
-A: Login screen → "Forgot Password" → Enter email → Check inbox 📧
-
-**Q: Can I use the app offline?**
-A: Favorites work offline, but search & maps need internet 🌐
-
-**Q: How do I delete a review?**
-A: Go to the attraction → Find your review → Tap ⋮ → Delete
-
-**Q: Is the app free?**
-A: Yes! 100% free to use 🎉
-
-**Q: Wrong attraction info?**
-A: Report it! Tap ⚠️ → "Report Issue" → We'll fix it fast!
-
----
-
-## 🎨 Understanding Icons
-
-Quick reference for app icons:
-
-| Icon | Meaning |
-|------|---------|
-| 🏛️ | Museums & Culture |
-| 🍽️ | Restaurants & Food |
-| 🏨 | Hotels & Accommodation |
-| 🎭 | Events & Entertainment |
-| 🏖️ | Beaches & Nature |
-| 🛍️ | Shopping |
-| 🚶 | Walking Tours |
-| 📍 | Location/Pin |
-| ⭐ | Rating |
-| ❤️ | Favorite |
-| 🔔 | Notification |
-| 🗺️ | Map/Navigation |
-
----
-
-## 🎓 Tutorial Missions
-
-### Mission 1: The Explorer 🌟
-- [ ] Create your account
-- [ ] Select a city
-- [ ] Browse 5 attractions
-- [ ] Save one favorite
-  **Reward:** You're officially a City Guide user! 🎉
-
-### Mission 2: The Reviewer 📝
-- [ ] Visit a place in real life
-- [ ] Write your first review
-- [ ] Add photos
-- [ ] Rate the experience
-  **Reward:** Community Contributor badge! ⭐
-
-### Mission 3: The Navigator 🗺️
-- [ ] Get directions to 3 places
-[//]: # (- [ ] Use the map feature)
-- [ ] Check opening hours
-- [ ] Call an attraction
-  **Reward:** Pro Navigator status! 🧭
-
----
-
-## 🌈 Make It Yours
-
-### Personalization Tips
-
-**Theme Your Experience:**
-- Profile picture that represents you ✨
-- Save places that match your interests
-- Write reviews in your own voice
-
-**Build Your Collection:**
-- Create a "Must Visit" list ⭐
-- Organize by trip or occasion
-- Share with friends!
-
-**Stay Connected:**
-- Follow cities you love 📍
-- Get notified about new spots
-- Be first to discover! 🎊
-
----
-
-## 🎬 What's Next?
-
-### Ready to Explore?
-
-```
-    🎯 Your Adventure Awaits!
-         ╱╲     ╱╲
-        ╱  ╲   ╱  ╲
-       ╱    ╲ ╱    ╲
-      ────────────────
-     🏛️  🍽️  🏨  🎭
-```
-
-**Go ahead and:**
-1. Open the app 📱
-2. Pick a city 🌆
-3. Start exploring! 🚀
-
-*The best adventures happen when you get started!*
-
----
-
-**Found a bug?** 🐛
-Report it through the app and help us improve!
-
----
-
-## 🎉 Final Words
-
-```
-╔══════════════════════════════════╗
-║                                 ║
-║   🌟 Every city has a story.    ║
-║      Go discover yours! 🗺️      ║
-║                                  ║
-╚══════════════════════════════════╝
-```
-
-**Remember:** The best city guide is the one that inspires you to explore, discover, and create unforgettable memories. Now get out there and make some magic happen! ✨
-
----
-
-*Happy Exploring! 🌍✈️🎒*
-
----
-
+>>>>>>> e46c2c8e915aa3ee1bd1a4dd908420d437ab7e4a
